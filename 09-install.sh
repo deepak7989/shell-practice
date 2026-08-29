@@ -8,6 +8,18 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+#first arg -> what are you trying to install
+# second arg -> exit code
+VALIDATE(){
+    if [ $2 -ne 0 ]; then
+        echo "Installing $1 is ... Failed"
+        exit 1
+    else
+        echo "Installing $1 is ... SUCCESS"
+    fi
+
+}
+
 #echo "I am continuing..."
 dnf list installed mysql
 
@@ -16,11 +28,6 @@ if [ $? -eq 0 ]; then
 else
     echo "Installing MySql"
     dnf install mysql -y
-
-    if [ $? -ne 0 ]; then
-        echo "Installing MySql is ... Failed"
-        exit 1
-    else
-        echo "Installing MySql is ... SUCCESS"
-    fi
+    VALIDATE MySQL $?
+    
 fi
