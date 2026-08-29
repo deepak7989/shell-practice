@@ -11,8 +11,11 @@ fi
 #echo "I am continuing..."
 
 echo "Installing MySql"
-dnf install mysqldffhfsd -y
+dnf install mysql -y
 
-echo "I am continuing..."
-
-echo "I am still continuing..."
+if [ $? -ne 0 ]; then
+    echo "Installing MySql is ... Failed"
+    exit 1
+else
+    echo "Installing MySql is ... SUCCESS"
+fi
