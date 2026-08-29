@@ -9,13 +9,17 @@ if [ $USERID -ne 0 ]; then
 fi
 
 #echo "I am continuing..."
-
-echo "Installing MySql"
-dnf install mysql -y
-
+dnf list installed mysql
 if [ $? -ne 0 ]; then
-    echo "Installing MySql is ... Failed"
-    exit 1
+    echo "MySQL is alredy installed ... SKIPPING"
 else
-    echo "Installing MySql is ... SUCCESS"
+    echo "Installing MySql"
+    dnf install mysql -y
+
+    if [ $? -ne 0 ]; then
+        echo "Installing MySql is ... Failed"
+        exit 1
+    else
+        echo "Installing MySql is ... SUCCESS"
+    fi
 fi
