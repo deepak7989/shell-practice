@@ -10,6 +10,7 @@ fi
 
 #echo "I am continuing..."
 dnf list installed mysql
+
 if [ $? -ne 0 ]; then
     echo "MySQL is alredy installed ... SKIPPING"
 else
