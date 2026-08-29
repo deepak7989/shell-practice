@@ -9,7 +9,7 @@ LOGS_FILE="$LOGS_DIR/$0.log" # home/ec2-user/shell-logs/10-logs.sh.log
 if [ $USERID -ne 0 ]; then
     echo "Please run this script with root access"
     exit 1
-fi
+
 
 #first arg -> what are you trying to install
 # second arg -> exit code
@@ -33,4 +33,5 @@ else
     dnf install mysql -y
     VALIDATE MySQL $?
     
+fi
 fi
