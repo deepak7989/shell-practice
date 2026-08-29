@@ -3,3 +3,5 @@
 ##### Special Vars #####
 echo "All variables passed to script: $@"
 echo "Number of varibles passed: $#"
+echo "First variable: $1"
+echo "Script name: $0"
