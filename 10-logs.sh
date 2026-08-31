@@ -33,3 +33,13 @@ else
     dnf install mysql -y
     VALIDATE MySQL $?    
 fi
+
+dnf list installed nginx &>> $LOGS_FILE
+
+if [ $? -eq 0 ]; then
+    echo "nginx is alredy installed ... SKIPPING"
+else
+    echo "Installing nginx"
+    dnf install nginx -y &>> $LOGS_FILE
+    VALIDATE MySQL $?    
+fi
