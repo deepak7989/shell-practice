@@ -15,10 +15,10 @@ fi
 # second arg -> exit code
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "Installing $1 is ... Failed"
+        echo "Installing $1 is ... Failed" | tee -a $LOGS_FILE
         exit 1
     else
-        echo "Installing $1 is ... SUCCESS"
+        echo "Installing $1 is ... SUCCESS" | tee -a $LOGS_FILE
     fi
 
 }
@@ -35,7 +35,6 @@ else
 fi
 
 dnf list installed nginx &>> $LOGS_FILE
-
 if [ $? -eq 0 ]; then
     echo "nginx is alredy installed ... SKIPPING"
 else
