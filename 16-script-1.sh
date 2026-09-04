@@ -3,6 +3,7 @@
 COUNTRY=INDIA
 
 echo "country: $COUNTRY"
-echo "pid OF SCRIPT-1: $$"
+echo "pid of script-1: $$"
 
-sh 17-script-2.sh
+#sh 17-script-2.sh
+source ./17-script-2.sh
