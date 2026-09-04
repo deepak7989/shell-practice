@@ -2,5 +2,5 @@
 
 while IFS= read -r line # IFS Internal field seperator
 do
-    echo $line
+    echo "$line"
 done < 01-hello-world.sh
