@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TO_TEAM =$1
+TO_TEAM=$1
 ALERT_TYPE=$2
 SERVER_IP=$3
 MESSAGE=$4
